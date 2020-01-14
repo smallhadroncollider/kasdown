@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css?family=Merriweather&display=swap');
+
+body {
+    background: #eee;
+    color: #333;
+    font-family: 'Merriweather', serif;
+    margin: 2em;
+}
+
+code, pre {
+    background: #bbb;
+    border: 1px solid #666;
+    border-radius: 2px;
+    padding: 3px;
+}
+
+li {
+    font-size: 40px;
+    padding: 20px 0;
+}
+
+li.done {
+    text-decoration: line-through;
+}
+
+.done li {
+    text-decoration: none;
+}

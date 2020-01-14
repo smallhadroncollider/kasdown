@@ -1,0 +1,1 @@
+~/.local/bin/ghcid --command "stack ghci kasdown:lib kasdown:test:kasdown-test --ghci-options=-fobject-code" --test "main"
