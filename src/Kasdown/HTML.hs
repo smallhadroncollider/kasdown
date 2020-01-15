@@ -5,16 +5,21 @@ module Kasdown.HTML
     ) where
 
 import ClassyPrelude
+
 import CMarkGFM       (commonmarkToHtml)
 import Data.FileEmbed (embedFile)
+import Data.Text      (replace)
 
 css :: Text
-css = "<style>" <> decodeUtf8 $(embedFile "templates/css.css") <> "</style>"
+css = decodeUtf8 $(embedFile "templates/css.css")
 
 js :: Text
-js = "<script>" <> decodeUtf8 $(embedFile "templates/js.js") <> "</script>"
+js = decodeUtf8 $(embedFile "templates/js.js")
+
+template :: Text
+template = decodeUtf8 $(embedFile "templates/template.html")
 
 html :: Text -> Text
-html content = do
-    let converted = commonmarkToHtml [] [] content
-    concat ["<html><head>", css, "</head><body>", converted, js, "</body></html>"]
+html md = do
+    let content = commonmarkToHtml [] [] md
+    replace "@content" content (replace "@js" js (replace "@css" css template))

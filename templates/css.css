@@ -4,7 +4,7 @@ body {
     background: #eee;
     color: #333;
     font-family: 'Merriweather', serif;
-    margin: 2em;
+    margin: 1em 10px;
 }
 
 code, pre {
@@ -12,17 +12,35 @@ code, pre {
     border: 1px solid #666;
     border-radius: 2px;
     padding: 3px;
+    word-wrap: anywhere;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+h3 {
+    font-size: 24px;
+}
+
+h4, h5, h6 {
+    font-size: 21px;
+}
+
+ul {
+    margin: 1em auto;
 }
 
 li {
-    font-size: 40px;
-    padding: 20px 0;
+    font-size: 22px;
+    padding: 1em 0;
 }
 
-li.done {
+.done {
+    opacity: 0.5;
     text-decoration: line-through;
-}
-
-.done li {
-    text-decoration: none;
 }
