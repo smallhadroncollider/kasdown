@@ -7,12 +7,24 @@ body {
     margin: 1em 10px;
 }
 
-code, pre {
+strong {
+    color: #ee2020;
+}
+
+pre, code {
     background: #bbb;
     border: 1px solid #666;
     border-radius: 2px;
     padding: 3px;
     word-wrap: anywhere;
+}
+
+pre code {
+    border: none;
+}
+
+a {
+    color: #246;
 }
 
 h1 {
