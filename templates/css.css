@@ -37,7 +37,11 @@ ul {
 
 li {
     font-size: 22px;
+}
+
+.clickable, .done {
     padding: 1em 0;
+    margin: 0;
 }
 
 .done {
