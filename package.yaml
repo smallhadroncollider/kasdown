@@ -31,6 +31,7 @@ library:
   - directory
   - file-embed
   - http-types
+  - network-info
   - text
   - wai
   - warp
