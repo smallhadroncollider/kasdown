@@ -9,18 +9,22 @@ import Network.Info             (getNetworkInterfaces, ipv4)
 import Network.Wai              (Application, responseLBS)
 import Network.Wai.Handler.Warp (run)
 
-import Kasdown.CLI (message)
+import Kasdown.CLI (header, mehssage, message)
 
-getIP :: IO [Text]
-getIP = do
+getIP :: Int -> IO [Text]
+getIP port = do
     interfaces <- getNetworkInterfaces
-    pure . filter (/= "0.0.0.0") $ tshow . ipv4 <$> interfaces
+    pure $
+        ("• http://" <>) . (<> ":" <> tshow port) <$>
+        filter (/= "0.0.0.0") (tshow . ipv4 <$> interfaces)
 
 serve :: Int -> Text -> IO ()
 serve port content = do
-    ips <- getIP
-    let items = unlines $ ("    - http://" <>) . (<> ":" <> tshow port) <$> ips
-    message $ "Available on:\n" <> items
+    header "Kasdown server running..."
+    items <- getIP port
+    mehssage "\nAvailable on:\n"
+    message (unlines items)
+    hFlush stdout
     run port (app content)
 
 app :: Text -> Application
