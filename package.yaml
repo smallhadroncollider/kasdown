@@ -26,9 +26,14 @@ default-extensions:
 library:
   source-dirs: src
   dependencies:
+  - ansi-terminal
   - cmark-gfm
   - directory
   - file-embed
+  - http-types
+  - text
+  - wai
+  - warp
 
 executables:
   kasdown:

@@ -1,7 +1,7 @@
 module Main where
 
-import           ClassyPrelude
-import           Kasdown.App   (go)
+import ClassyPrelude
+import Kasdown       (start)
 
 main :: IO ()
-main = go
+main = start
